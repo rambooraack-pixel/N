@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    min-height: 100dvh;
+    background:
+      radial-gradient(circle at 18% 12%, rgba(30, 58, 138, 0.34) 0%, transparent 45%),
+      radial-gradient(circle at 82% 88%, rgba(88, 28, 135, 0.28) 0%, transparent 45%),
+      linear-gradient(165deg, #090e1a 0%, #111827 55%, #131129 100%);
+    overflow-x: hidden;
+    user-select: none;
+  }
+}
+
+@keyframes popDrop {
+  0% {
+    transform: translateY(-26px) scale(0.9);
+  }
+  70% {
+    transform: translateY(3px) scale(1.04);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes tubeShake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-6px);
+  }
+  75% {
+    transform: translateX(6px);
+  }
+}
+
+@keyframes hintGlowFrom {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(52, 211, 153, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 26px rgba(52, 211, 153, 0.9);
+  }
+}
+
+@keyframes hintGlowTo {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(251, 191, 36, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 26px rgba(251, 191, 36, 0.9);
+  }
+}
+
+.animate-pop-drop {
+  animation: popDrop 0.24s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.animate-tube-shake {
+  animation: tubeShake 0.3s ease;
+}
+
+.animate-hint-from {
+  animation: hintGlowFrom 1s infinite ease-in-out;
+}
+
+.animate-hint-to {
+  animation: hintGlowTo 1s infinite ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pop-drop,
+  .animate-tube-shake,
+  .animate-hint-from,
+  .animate-hint-to {
+    animation: none !important;
+  }
+}

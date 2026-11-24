@@ -1,0 +1,6 @@
+{
+  "name": "CHROMASORT ∞",
+  "description": "Unlimited, solver-verified color and symbol gem sorting puzzle game with mystery levels, smart hints, and accessible controls.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

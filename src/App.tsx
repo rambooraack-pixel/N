@@ -11,7 +11,9 @@ import {
   VolumeX,
 } from 'lucide-react';
 import { GemTube } from './components/GemTube';
+import { OfflineIndicator } from './components/OfflineIndicator';
 import { ParticleCanvas, type ParticleCanvasHandle } from './components/ParticleCanvas';
+import { PWAInstallButton } from './components/PWAInstallButton';
 import { RulesModal } from './components/RulesModal';
 import { WinModal } from './components/WinModal';
 import { sfx } from './game/audio';
@@ -482,6 +484,8 @@ export default function App() {
           </div>
 
           <div className="flex items-center gap-2 shrink-0">
+            <PWAInstallButton />
+
             <button
               type="button"
               onClick={toggleSymbols}
@@ -645,6 +649,7 @@ export default function App() {
 
       <WinModal summary={winSummary} onNextLevel={startNextLevel} />
       <RulesModal open={rulesOpen} onClose={() => setRulesOpen(false)} />
+      <OfflineIndicator />
     </div>
   );
 }
